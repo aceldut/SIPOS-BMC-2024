@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split Screen Login with Background Color</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <!-- Left column for form login -->
+            <div class="col-md-6 left">
+                <div class="d-flex justify-content-center align-items-center h-100">
+                    <form action="#" method="post" class="login-form" id="login-form">
+                        <h2 class="text-left mb-4">Login</h2>
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input type="text" id="username" name="username" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                </div>
+                                <input type="password" id="password" name="password" class="form-control" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    </form>
+                    <!-- Copyright text -->
+                    <p class="copyright">Copyright by SIPOS 2024</p>
+                </div>
+            </div>
+            <!-- Right column for image with background color -->
+            <div class="col-md-6 d-flex justify-content-center align-items-center right">
+                <img src="assets/ibu-anak.png" alt="Illustration" class="img-fluid">
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript for Redirect -->
+    <script>
+        // Ambil elemen form
+        const loginForm = document.getElementById('login-form');
+
+        // Tambahkan event listener untuk event submit form
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Menghentikan pengiriman form default
+
+            // Simulasi proses login yang berhasil
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Cek peran berdasarkan username dan password (simulasi tanpa database)
+            let role;
+            if (username === 'admin' && password === 'admin123') {
+                role = 'admin';
+            } else if (username === 'user' && password === 'user123') {
+                role = 'user';
+            }
+
+            // Redirect berdasarkan peran
+            if (role) {
+                if (role === 'admin') {
+                    window.location.href = 'admin/dashboard-pages/dashboard-page.html';
+                } else if (role === 'user') {
+                    window.location.href = 'user/dashboard-user.html';
+                }
+            } else {
+                alert('Username atau password salah!');
+            }
+        });
+    </script>
+</body>
+</html>

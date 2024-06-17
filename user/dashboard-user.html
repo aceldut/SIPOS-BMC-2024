@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posyandu User Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style/style-dashboard.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block sidebar">
+                <div class="sidebar-sticky">
+                    <div class="text-center mb-4">
+                        <img src="../assets/logo.png" alt="Logo" class="img-fluid">
+                    </div>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                <i class="fas fa-tachometer-alt"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="jadwal-page.html">
+                                <i class="fas fa-calendar-alt"></i>
+                                Jadwal
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="artikel-page.html">
+                                <i class="fas fa-newspaper"></i>
+                                Artikel
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Keluar
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Dashboard</h1>
+                </div>
+                <div class="card card-custom mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Halo Ibu Rati Rembana</h5>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="card card-custom">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Perkembangan Anak</h5>
+                                <p class="card-text">2</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card card-custom">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Imunisasi</h5>
+                                <p class="card-text">1</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-1 card-form-custom">
+                    <div class="card-header">
+                        Data Anda
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">NIK</th>
+                                    <td>: 7406042314670002</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Nama Ibu</th>
+                                    <td>: Rati Rembana</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">No Telp</th>
+                                    <td>: 08528161572</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Alamat</th>
+                                    <td>: Kambu</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Jumlah Anak</th>
+                                    <td>: 1 Anak</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <footer class="pt-4 my-md-5 pt-md-5 border-top">
+                    <div class="d-flex justify-content-between">
+                        <small class="d-block mb-3 text-muted">2024 © SIPOS</small>
+                        <small class="d-block mb-3 text-muted">Crafted By BMC</small>
+                    </div>
+                </footer>
+            </main>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>

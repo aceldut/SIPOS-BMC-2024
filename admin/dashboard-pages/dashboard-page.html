@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posyandu Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../style/style-dashboard.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block sidebar">
+                <div class="sidebar-sticky">
+                    <div class="text-center mb-4">
+                        <img src="../logo.png" alt="Logo" class="img-fluid">
+                    </div>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                <i class="fas fa-tachometer-alt"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../jadwal-page.html">
+                                <i class="fas fa-calendar-alt"></i>
+                                Jadwal
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../petugas-page.html">
+                                <i class="fas fa-user"></i>
+                                Petugas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../artikel-page.html">
+                                <i class="fas fa-newspaper"></i>
+                                Artikel
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../index.html">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Keluar
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" id="main-content">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Dashboard</h1>
+                </div>
+                <div class="card card-custom">
+                    <div class="card-body text-left">
+                        <h5 class="card-title">Halo Admin</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card card-custom card-link" data-url="perkembangan-anak-content.html">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Perkembangan Anak</h5>
+                                <p class="card-text">2</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card card-custom card-link" data-url="imunisasi-content.html">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Imunisasi</h5>
+                                <p class="card-text">1</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card card-custom card-link" data-url="data-orangtua-content.html">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Data Orangtua</h5>
+                                <p class="card-text">1</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card card-custom card-link" data-url="data-anak-content.html">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Data Anak</h5>
+                                <p class="card-text">1</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-1 card-form-custom">
+                    <div class="card-header">
+                        Form Pendaftaran Baru
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="nik">Nik*</label>
+                                    <input type="text" class="form-control" id="nik" placeholder="Nik">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="namaIbu">Nama Ibu*</label>
+                                    <input type="text" class="form-control" id="namaIbu" placeholder="Nama Ibu">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="noTelp">No Telp Ibu*</label>
+                                    <input type="text" class="form-control" id="noTelp" placeholder="No Telp Ibu">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="alamat">Alamat*</label>
+                                    <input type="text" class="form-control" id="alamat" placeholder="Alamat">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="namaAnak">Nama Anak*</label>
+                                    <input type="text" class="form-control" id="namaAnak" placeholder="Nama Anak">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="jenisKelamin">Jenis Kelamin*</label>
+                                    <select id="jenisKelamin" class="form-control">
+                                        <option selected>Pilih...</option>
+                                        <option>Laki-laki</option>
+                                        <option>Perempuan</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="tempatLahir">Tempat Lahir*</label>
+                                    <input type="text" class="form-control" id="tempatLahir" placeholder="Tempat Lahir">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="tanggalLahir">Tanggal Lahir*</label>
+                                    <input type="date" class="form-control" id="tanggalLahir">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <footer class="pt-4 my-md-5 pt-md-5 border-top">
+                    <div class="d-flex justify-content-between">
+                        <small class="d-block mb-3 text-muted">2024 © SIPOS</small>
+                        <small class="d-block mb-3 text-muted">Crafted By BMC</small>
+                    </div>
+                </footer>
+            </main>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        feather.replace();
+
+        // Load content dynamically
+        $(document).ready(function() {
+            $('.card-link').on('click', function() {
+                var url = $(this).data('url');
+                $('#main-content').load(url);
+            });
+        });
+
+        // Ambil URL saat ini
+        var currentUrl = window.location.href;
+
+        // Ambil semua link di sidebar
+        var sidebarLinks = document.querySelectorAll('.sidebar .nav-link');
+
+        // Loop melalui setiap link di sidebar
+        sidebarLinks.forEach(function(link) {
+            // Periksa apakah link adalah link aktif
+            if (link.href === currentUrl) {
+                link.classList.add('active'); // Tambahkan kelas 'active' untuk menunjukkan link aktif
+            }
+        });
+    </script>
+</body>
+</html>
