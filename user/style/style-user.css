@@ -1,6 +1,6 @@
 body {
     font-size: .875rem;
-    background-color: #e9ecef; /* Light grey background for the entire body */
+    background-color: #f8f9fa; /* Light grey background for the entire body */
 }
 
 .sidebar {
@@ -93,4 +93,9 @@ body {
 
 .card-link:hover .card {
     box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+
+.text-center img {
+    max-width: 100%;
+    height: auto;
 }

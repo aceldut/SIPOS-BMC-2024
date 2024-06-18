@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jadwal Posyandu</title>
+    <title>Artikel</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style/style-admin.css">
+    <link rel="stylesheet" href="style/style-user.css">
+
 </head>
 <body>
     <div class="container-fluid">
@@ -21,25 +22,19 @@
                     </div>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard-pages/dashboard-page.html">
+                            <a class="nav-link" href="dashboard-pages/dashboard-user.html">
                                 <i class="fas fa-tachometer-alt"></i>
                                 Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="jadwal-page.html">
+                            <a class="nav-link" href="jadwal-user.html">
                                 <i class="fas fa-calendar-alt"></i>
                                 Jadwal
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="petugas-page.html">
-                                <i class="fas fa-user"></i>
-                                Petugas
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="artikel-page.html">
+                            <a class="nav-link active" href="artikel-user.html">
                                 <i class="fas fa-newspaper"></i>
                                 Artikel
                             </a>
@@ -53,18 +48,40 @@
                     </ul>
                 </div>
             </nav>
-            <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-4 main-content">
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Jadwal Posyandu</h1>
+                    <h1 class="h2">Artikel</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="dashboard-pages/dashboard-page.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Jadwal Posyandu</li>
+                            <li class="breadcrumb-item"><a href="dashboard-pages/dashboard-user.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Artikel</li>
                         </ol>
                     </nav>
                 </div>
-                <button type="button" class="btn btn-primary mb-3">Upload Gambar Posyandu</button>
-                <!-- Content for Jadwal Posyandu -->
+                <div class="row mb">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <img src="assets/image1.jpg" class="card-img-top" alt="Image 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Makanan Yang Baik Bagi Pertumbuhan Anak</h5>
+                                <p class="card-text"><small class="text-muted">2023-05-09</small></p>
+                                <p class="card-text">Makanan Yang Baik Bagi Pertumbuhan Anak adalah makan yang mempunyai gizi seimbang.</p>
+                                <a href="#" class="card-link">Baca Selengkapnya...</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <img src="assets/image2.jpg" class="card-img-top" alt="Image 2">
+                            <div class="card-body">
+                                <h5 class="card-title">5 Makan yang wajib dikonsumsi balita</h5>
+                                <p class="card-text"><small class="text-muted">2023-04-23</small></p>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                                <a href="#" class="card-link">Baca Selengkapnya...</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <footer class="pt-4 my-md-5 pt-md-5 border-top">
                     <div class="d-flex justify-content-between">
                         <small class="d-block mb-3 text-muted">2024 © SIPOS</small>
@@ -74,12 +91,12 @@
             </main>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapc.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/feather-icons"></script>
     <script>
-        feather.replace()
+        feather.replace();
     </script>
 </body>
 </html>
