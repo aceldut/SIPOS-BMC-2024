@@ -1,27 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jadwal Posyandu</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
     <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style/style-admin.css">
-</head>
+    <link rel="stylesheet" href="style/style-admin.css" />
+
+    <style>
+        #snackbar {
+            visibility: hidden;
+            min-width: 250px;
+            max-width: 300px;
+            text-align: center;
+            border-radius: 8px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            right: 30px;
+            bottom: 30px;
+            font-size: 17px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: visibility 0s, bottom 0.5s, opacity 0.5s ease-in-out;
+            opacity: 0;
+        }
+
+        #snackbar.show {
+            visibility: visible;
+            bottom: 50px;
+            opacity: 1;
+        }
+
+        .snackbar-success {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .snackbar-error {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .snackbar-info {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        #image-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .image-item {
+            position: relative;
+        }
+
+        .image-item img {
+            max-width: 1000px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-item button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(255, 0, 0, 0.7);
+            color: white;
+            border: none;
+            padding: 5px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .image-item button:hover {
+            background-color: rgba(255, 0, 0, 1);
+        }
+    </style>
+
 <body>
     <div class="container-fluid">
         <div class="row">
             <nav class="col-md-2 d-none d-md-block sidebar">
                 <div class="sidebar-sticky">
                     <div class="text-left mb-4">
-                        <img src="../assets/logo.png" alt="Logo" class="img-fluid">
+                        <img src="../assets/logo.png" alt="Logo" class="img-fluid" />
                     </div>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard-pages/dashboard-page.html">
+                            <a class="nav-link" href="dashboard-pages/dashboard-page.php">
                                 <i class="fas fa-tachometer-alt"></i>
                                 Dashboard
                             </a>
@@ -39,7 +112,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="artikel-page.html">
+                            <a class="nav-link" href="artikel-page.php">
                                 <i class="fas fa-newspaper"></i>
                                 Artikel
                             </a>
@@ -58,28 +131,191 @@
                     <h1 class="h2">Jadwal Posyandu</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="dashboard-pages/dashboard-page.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Jadwal Posyandu</li>
+                            <li class="breadcrumb-item">
+                                <a href="dashboard-pages/dashboard-page.php">Dashboard</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                Jadwal Posyandu
+                            </li>
                         </ol>
                     </nav>
                 </div>
-                <button type="button" class="btn btn-primary mb-3">Upload Gambar Posyandu</button>
+                <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#uploadImageModal">
+                    Upload Gambar Posyandu
+                </button>
                 <!-- Content for Jadwal Posyandu -->
-                <footer class="pt-4 my-md-5 pt-md-5 border-top">
-                    <div class="d-flex justify-content-between">
-                        <small class="d-block mb-3 text-muted">2024 © SIPOS</small>
-                        <small class="d-block mb-3 text-muted">Crafted By BMC</small>
+                <div id="image-container" class="d-flex flex-wrap">
+                    <!-- Uploaded images will be displayed here -->
+                </div>
+                <!-- Modal Konfirmasi Penghapusan -->
+                <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="confirmDeleteModalLabel">Konfirmasi Penghapusan</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Apakah Anda yakin ingin menghapus gambar ini?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                <button type="button" class="btn btn-danger" id="confirmDeleteButton">Hapus</button>
+                            </div>
+                        </div>
                     </div>
-                </footer>
-            </main>
+                </div>
+        </div>
+        <footer class="pt-4 my-md-5 pt-md-5 border-top">
+            <div class="d-flex justify-content-between">
+                <small class="d-block mb-3 text-muted">2024 © SIPOS</small>
+                <small class="d-block mb-3 text-muted">Crafted By BMC</small>
+            </div>
+        </footer>
+        </main>
+    </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="uploadImageModal" tabindex="-1" aria-labelledby="uploadImageModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="uploadImageModalLabel">
+                        Form Upload Jadwal
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="uploadImageForm" action="upload-gambar.php" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="image">Gambar Jadwal (Maks 40MB)</label>
+                            <input type="file" class="form-control-file" id="image" name="image" accept="image/*" required />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Upload</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <div id="snackbar"></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/feather-icons"></script>
     <script>
-        feather.replace()
+        feather.replace();
+
+        $(document).ready(function () {
+            fetchImages();
+
+            $("#uploadImageForm").on("submit", function (event) {
+                event.preventDefault();
+                var formData = new FormData(this);
+                var file = $("#image")[0].files[0];
+
+                // Validasi ukuran file di sisi klien
+                if (file.size > 40 * 1024 * 1024) {
+                    // 40MB
+                    showSnackbar("File terlalu besar. Maksimal ukuran file adalah 40MB.", "error");
+                    return;
+                }
+
+                $.ajax({
+                    url: "upload-gambar.php",
+                    type: "POST",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response === "success") {
+                            showSnackbar("Gambar berhasil diupload", "success");
+                            fetchImages();
+                            $("#uploadImageModal").modal("hide");
+                        } else {
+                            var errorMessage = response.split("|")[1] || "Gagal mengupload gambar";
+                            showSnackbar(errorMessage, "error");
+                        }
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.error("Error uploading image:", textStatus, errorThrown);
+                        showSnackbar("Terjadi kesalahan saat mengupload gambar", "error");
+                    },
+                });
+            });
+
+            let deleteIdJadwal;
+
+            function fetchImages() {
+                $.ajax({
+                    url: "fetch-gambar.php",
+                    type: "GET",
+                    dataType: "json",
+                    success: function (data) {
+                        var imageContainer = $("#image-container");
+                        imageContainer.empty();
+                        data.forEach(function (image) {
+                            var imgElement = $("<img>").attr("src", "data:image/jpeg;base64," + image.foto);
+                            var deleteButton = $("<button>").html("&times;").click(function () {
+                                deleteIdJadwal = image.id_jadwal;
+                                $("#confirmDeleteModal").modal("show");
+                            });
+                            var imageDiv = $("<div>").addClass("image-item").append(imgElement).append(deleteButton);
+                            imageContainer.prepend(imageDiv); // Gambar baru ditambahkan di bagian atas
+                        });
+                    },
+                    error: function () {
+                        showSnackbar("Gagal mengambil gambar", "error");
+                    },
+                });
+            }
+
+            document.getElementById("confirmDeleteButton").addEventListener("click", function () {
+                deleteImage(deleteIdJadwal);
+                $("#confirmDeleteModal").modal("hide");
+            });
+
+            function deleteImage(id_jadwal) {
+                $.ajax({
+                    url: "delete-gambar.php",
+                    type: "POST",
+                    data: { id_jadwal: id_jadwal },
+                    success: function (response) {
+                        if (response === "success") {
+                            showSnackbar("Gambar berhasil dihapus", "success");
+                            fetchImages();
+                        } else {
+                            showSnackbar("Gagal menghapus gambar", "error");
+                        }
+                    },
+                    error: function () {
+                        showSnackbar("Terjadi kesalahan saat menghapus gambar", "error");
+                    },
+                });
+            }
+
+            function showSnackbar(message, type) {
+                var snackbar = document.getElementById("snackbar");
+                snackbar.textContent = message;
+
+                snackbar.className = snackbar.className.replace(/\bshow\b/g, "");
+                snackbar.className = snackbar.className.replace(/\bsnackbar-\S+/g, "");
+
+                snackbar.classList.add("show");
+                snackbar.classList.add(`snackbar-${type}`);
+
+                setTimeout(function () {
+                    snackbar.className = snackbar.className.replace("show", "");
+                }, 3000);
+            }
+        });
     </script>
 </body>
+
 </html>

@@ -19,10 +19,10 @@
             <!-- Left column for form login -->
             <div class="col-md-6 left">
                 <div class="d-flex justify-content-center align-items-center h-100">
-                    <form action="#" method="post" class="login-form" id="login-form">
+                    <form action="login.php" method="post" class="login-form" id="login-form">
                         <h2 class="text-left mb-4">Login</h2>
                         <div class="form-group">
-                            <label for="username">Username:</label>
+                            <label for="username">Username (NIK/Username Admin):</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -31,7 +31,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="password">Password:</label>
+                            <label for="password">Password (NIK/Password Admin):</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-lock"></i></span>
@@ -56,39 +56,5 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <!-- JavaScript for Redirect -->
-    <script>
-        // Ambil elemen form
-        const loginForm = document.getElementById('login-form');
-
-        // Tambahkan event listener untuk event submit form
-        loginForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Menghentikan pengiriman form default
-
-            // Simulasi proses login yang berhasil
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            // Cek peran berdasarkan username dan password (simulasi tanpa database)
-            let role;
-            if (username === 'admin' && password === 'admin123') {
-                role = 'admin';
-            } else if (username === 'user' && password === 'user123') {
-                role = 'user';
-            }
-
-            // Redirect berdasarkan peran
-            if (role) {
-                if (role === 'admin') {
-                    window.location.href = 'admin/dashboard-pages/dashboard-page.html';
-                } else if (role === 'user') {
-                    window.location.href = 'user/dashboard-pages/dashboard-user.html';
-                }
-            } else {
-                alert('Username atau password salah!');
-            }
-        });
-    </script>
 </body>
 </html>
